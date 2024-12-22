@@ -1,0 +1,303 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    color: #444;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Parallax Effect Background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -1;
+    filter: blur(8px) brightness(0.8);
+  }
+  
+  /* Header */
+  header {
+    background: rgba(34, 34, 34, 0.9);
+    color: white;
+    padding: 1.5em 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+  }
+  
+  header .header-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+  }
+  
+  header h1:hover {
+    transform: scale(1.1);
+  }
+  
+  header nav {
+    display: flex;
+    gap: 1.5em;
+  }
+  
+  header nav a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: #ff7043;
+  }
+  
+  /* Glow Effect for Nav Links */
+  header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff7043;
+    transition: width 0.3s;
+  }
+  
+  header nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Main Section */
+  main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2em 1em;
+    animation: fadeInMain 1.5s ease;
+  }
+  
+  .container {
+    margin-bottom: 3em;
+  }
+  
+  .container h2 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 1em;
+    color: #555;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ff7043, #f7b733);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideIn 1.2s ease;
+  }
+  
+  /* Ad Boxes */
+  .boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 1em;
+  }
+  
+  .box {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease, box-shadow 0.4s ease;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .box img,
+  .box video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  
+  .box img:hover,
+  .box video:hover {
+    transform: scale(1.05);
+  }
+  
+  .box:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .box .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .box:hover .overlay {
+    opacity: 1;
+  }
+  
+  .box .overlay h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Loading Spinner for Lazy Loading */
+  .box img::before,
+  .box video::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #ff7043;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Footer */
+  footer {
+    background: rgba(34, 34, 34, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1.5em 0;
+    margin-top: 3em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer p {
+    font-size: 0.9em;
+    color: #bbb;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInMain {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header .header-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    header h1 {
+      margin-bottom: 1em;
+    }
+  
+    header nav {
+      flex-direction: column;
+      gap: 1em;
+    }
+  
+    main {
+      padding: 1em;
+    }
+  
+    .container h2 {
+      font-size: 1.8em;
+    }
+  
+    .box {
+      margin-bottom: 1.5em;
+    }
+  }
+  
+  .ad-content img,
+  .ad-content video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .ad-content img.loaded,
+  .ad-content video.loaded {
+    opacity: 1;
+  }
+  
