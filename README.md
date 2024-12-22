@@ -1,0 +1,2 @@
+# Coins
+clicks and earn
